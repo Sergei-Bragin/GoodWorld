@@ -1,0 +1,4 @@
+2015-12-06 23:01:05,871  INFO [main] - event_mechanism.Event.getEvent 47 - Create -> Good night, World!
+2015-12-06 23:01:05,873  INFO [main] - GoodWorld.main 34 - Print night message
+2015-12-06 23:02:03,323  INFO [main] - event_mechanism.Event.getEvent 47 - Create -> Good night, World!
+2015-12-06 23:02:03,324  INFO [main] - GoodWorld.main 34 - Print night message
