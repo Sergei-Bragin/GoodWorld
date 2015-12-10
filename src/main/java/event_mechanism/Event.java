@@ -9,7 +9,7 @@ import java.util.Date;
 public class Event {
 
     private static final Logger log = Logger.getLogger(Event.class);
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
     private Date current;
     private Date morning;
@@ -27,12 +27,11 @@ public class Event {
 
     public String  getEvent() throws ParseException{
 
-
-            current = dateFormat.parse(dateFormat.format(currentDate));
-            morning  = dateFormat.parse(BorderEvent.MORNING.toString());
-            day  = dateFormat.parse(BorderEvent.DAY.toString());
-            evening = dateFormat.parse(BorderEvent.EVENING.toString());
-            night = dateFormat.parse(BorderEvent.NIGHT.toString());
+        current = dateFormat.parse(dateFormat.format(currentDate));
+        morning  = dateFormat.parse(BorderEvent.MORNING.toString());
+        day  = dateFormat.parse(BorderEvent.DAY.toString());
+        evening = dateFormat.parse(BorderEvent.EVENING.toString());
+        night = dateFormat.parse(BorderEvent.NIGHT.toString());
 
 
         if(current.after(morning) && current.before(day)){
@@ -50,13 +49,14 @@ public class Event {
         else
             log.info("Create -> Good night, World!");
             return "NIGHT";
+
 }
 
     public static Builder newBuilder(){
         return new Event().new Builder();
     }
     public static Builder newBuilder(String event)throws ParseException{
-        return  new Event(event).newBuilder();
+        return new Event(event).new Builder();
     }
 
     public class Builder{

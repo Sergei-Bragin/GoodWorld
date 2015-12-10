@@ -9,7 +9,7 @@ public class GoodWorld {
 
     private static final Logger log = Logger.getLogger(GoodWorld.class);
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         Locale.getDefault();
         ResourceBundle res = ResourceBundle.getBundle("bundle");
