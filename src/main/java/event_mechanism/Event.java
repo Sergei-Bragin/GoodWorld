@@ -21,6 +21,9 @@ public class Event {
     private Event(){
        currentDate = new Date();
     }
+    private Event(String event) throws ParseException{
+        currentDate = dateFormat.parse(event);
+    }
 
     public String  getEvent() throws ParseException{
 
@@ -51,6 +54,9 @@ public class Event {
 
     public static Builder newBuilder(){
         return new Event().new Builder();
+    }
+    public static Builder newBuilder(String event)throws ParseException{
+        return  new Event(event).newBuilder();
     }
 
     public class Builder{
