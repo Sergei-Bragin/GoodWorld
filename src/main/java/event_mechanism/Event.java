@@ -9,27 +9,28 @@ import java.util.Date;
 public class Event {
 
     private static final Logger log = Logger.getLogger(Event.class);
-    private Date currentDate = new Date();
-    private Date current = null;
-    private Date morning = null;
-    private Date day = null;
-    private Date evening = null;
-    private Date night = null;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
 
-    private Event(){}
+    private Date current;
+    private Date morning;
+    private Date day;
+    private Date evening;
+    private Date night;
+    private Date currentDate;
 
-    public String  getEvent() {
+    private Event(){
+       currentDate = new Date();
+    }
 
-        try {
+    public String  getEvent() throws ParseException{
+
+
             current = dateFormat.parse(dateFormat.format(currentDate));
             morning  = dateFormat.parse(BorderEvent.MORNING.toString());
             day  = dateFormat.parse(BorderEvent.DAY.toString());
             evening = dateFormat.parse(BorderEvent.EVENING.toString());
             night = dateFormat.parse(BorderEvent.NIGHT.toString());
-        } catch (ParseException e) {
-            log.error("Parse exception", e);
-        }
+
 
         if(current.after(morning) && current.before(day)){
             log.info("Create  -> Good morning, World!");
